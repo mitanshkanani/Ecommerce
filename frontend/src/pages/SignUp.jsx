@@ -13,7 +13,6 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as Lk } from 'react-router-dom';
 
-
 const defaultTheme = createTheme();
 
 export default function SignUp() {
@@ -71,114 +70,117 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  error={!!validationErrors.firstName}
-                  helperText={validationErrors.firstName}
-                />
+      <Box sx={{ backgroundColor: 'papayawhip', minHeight: '90vh' }}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              border: '2px solid #663f00',
+              borderRadius: "20px", // Increased border radius
+              padding: '2rem', // Added padding
+              boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)' // Added boxShadow
+            }}
+          >
+            <Typography component="h1" variant="h4">
+              Sign up
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                    error={!!validationErrors.firstName}
+                    helperText={validationErrors.firstName}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="lastName"
+                    label="Last Name"
+                    name="lastName"
+                    autoComplete="family-name"
+                    error={!!validationErrors.lastName}
+                    helperText={validationErrors.lastName}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    error={!!validationErrors.email}
+                    helperText={validationErrors.email}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="phoneNumber"
+                    label="Phone Number"
+                    type="tel"
+                    error={!!validationErrors.phoneNumber}
+                    helperText={validationErrors.phoneNumber}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                    error={!!validationErrors.password}
+                    helperText={validationErrors.password}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  error={!!validationErrors.lastName}
-                  helperText={validationErrors.lastName}
-                />
+              {Object.keys(validationErrors).length > 0 && (
+                <Typography variant="body2" color="error" align="center" sx={{ mt: 2 }}>
+                  Please fix the errors before submitting.
+                </Typography>
+              )}
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                style={{backgroundColor: "#663f00",color:'papayawhip'}}
+              >
+                <Lk to='/sign-in' style={{textDecoration:'none',color:'papayawhip'}}>Sign Up</Lk>
+              </Button>
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                     <Lk to="/sign-in" style={{textDecoration:'none',color:'black'}}> Already have an account? Sign in</Lk>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  error={!!validationErrors.email}
-                  helperText={validationErrors.email}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="phoneNumber"
-                  label="Phone Number"
-                  type="tel"
-                  error={!!validationErrors.phoneNumber}
-                  helperText={validationErrors.phoneNumber}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  error={!!validationErrors.password}
-                  helperText={validationErrors.password}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
-            </Grid>
-            {Object.keys(validationErrors).length > 0 && (
-              <Typography variant="body2" color="error" align="center" sx={{ mt: 2 }}>
-                Please fix the errors before submitting.
-              </Typography>
-            )}
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-            <Lk to='/sign-in' style={{textDecoration:'none',color:'black'}}>Sign Up</Lk> 
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                   <Lk to="/sign-in" style={{textDecoration:'none',color:'black'}}> Already have an account? Sign in</Lk>
-              </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
-        
-      </Container>
+        </Container>
+      </Box>
     </ThemeProvider>
   );
 }
