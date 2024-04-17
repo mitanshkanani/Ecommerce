@@ -15,9 +15,9 @@ const Footer = () => {
           </Typography>
           <Box marginTop="0.5rem">
             <Lk to='/about' style={{ textDecoration: 'none', color: 'inherit', marginRight: '1rem' }}>About Us</Lk>
-            <Lk to='/privacy-policy' style={{ textDecoration: 'none', color: 'inherit', marginRight: '1rem' }}>Privacy Policy</Lk>
-            <Lk to='/terms-of-service' style={{ textDecoration: 'none', color: 'inherit', marginRight: '1rem' }}>Terms of Service</Lk>
-            <Lk to='/contact-us' style={{ textDecoration: 'none', color: 'inherit' }}>Contact Us</Lk>
+            <Lk to='/policy' style={{ textDecoration: 'none', color: 'inherit', marginRight: '1rem' }}>Privacy Policy</Lk>
+            <Lk to='/conditions' style={{ textDecoration: 'none', color: 'inherit', marginRight: '1rem' }}>Terms of Service</Lk>
+            <Lk to='/contact' style={{ textDecoration: 'none', color: 'inherit' }}>Contact Us</Lk>
           </Box>
           <Box marginTop="1rem" textAlign="center">
             <IconButton component="a" href="https://github.com/mitanshkanani" target="_blank" rel="noopener noreferrer" color='#663f00'>
