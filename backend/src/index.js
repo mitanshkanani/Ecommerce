@@ -1,3 +1,6 @@
 //model->controller->middleware(optional)->router->index
-import { app } from "./app";
-console.log("Hello world");
+import { app } from "./app.js";
+
+app.listen(8000, () => {
+    console.log("Server is running on port 8000");
+});
